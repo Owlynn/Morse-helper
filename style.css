@@ -35,12 +35,12 @@ body {
     width: 270px;
     height: 270px;
     border-radius: 10%;
-    margin: 10%;
+    margin-left: 10%;
 }
 
 .visual-morse-displayed {
     font-size: 12em;
-    margin: 10%;
+    margin-left: 10%;
 }
 
 .alphabet{
