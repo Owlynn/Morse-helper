@@ -19,7 +19,7 @@ body {
 .display-letter{
     border: 2px solid rgb(36, 112, 105);
     height: 40vh;
-    width: 100vh;
+    width: 120vh;
     border-radius: 10%;
     margin-top: 4vh;
     display: flex;
@@ -32,11 +32,17 @@ body {
     text-align: center;
     border: 2px solid rgb(36, 112, 105);
     background-color: rgb(141, 231, 222);
-    width: 240px;
-    height: fit-content;
+    width: 270px;
+    height: 270px;
     border-radius: 10%;
-    justify-content: center;
+    margin: 10%;
 }
+
+.visual-morse-displayed {
+    font-size: 12em;
+    margin: 10%;
+}
+
 .alphabet{
     /* border: 2px solid rgb(36, 112, 105); */
     height: 40vh;
