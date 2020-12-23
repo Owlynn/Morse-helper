@@ -64,4 +64,4 @@ let audioMorse = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', keyboard.createKeyboard);
+document.addEventListener('DOMContentLoaded',keyboard.createKeyboard);
