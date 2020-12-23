@@ -8,9 +8,9 @@ let keyboard = {
             singleKey.innerHTML= keyboard.alphabet[i];
             singleKey.addEventListener("click", visualMorse.displayLetter);
         }
-        
     }
 };
+
 let visualMorse = {
     morseAlphabet : ["._","_...","_._.","_..",".",".._.","__.","....","..",".___","_._","._..","__","_.","___",".__.","__._","._.","...","_",".._","..._",".__","_.._","_.__","__.."],
     letterDisplayed : document.createElement('div'),
@@ -50,7 +50,6 @@ let audioMorse = {
             audioMorse.short.pause();
             audioMorse.long.currentTime = 0;
             audioMorse.short.currentTime = 0;
-            console.log(splittedMorse[index]);
             
             if (splittedMorse[index] == undefined) {
                 clearInterval(playMorseCode);
