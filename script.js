@@ -10,37 +10,55 @@ let keyboard = {
         }
         
     }
-}
-
-
+};
 let visualMorse = {
     // currentLetter : null, 
     // currentPlayer : null, 
     // newLetter : null, 
     // newPlayer : null,
-
+    
     morseAlphabet : ["._","_...","_._.","_..",".",".._.","__.","....","..",".___","_._","._..","__","_.","___",".__.","__._","._.","...","_",".._","..._",".__","_.._","_.__","__.."],
-    displayLetter(event){
+    letterDisplayed : document.createElement('div'),
+    morseDisplayed : document.createElement('div'),
 
-            let letterDisplayed = document.createElement('div');
-            document.querySelector(".display-letter").appendChild(letterDisplayed);
-            letterDisplayed.classList.add("letter-displayed");
-            letterDisplayed.innerHTML = event.target.innerHTML;
-            
-            let morseDisplayed = document.createElement('div');
-            document.querySelector(".display-letter").appendChild(morseDisplayed);
-            morseDisplayed.classList.add("visual-morse-displayed");
-            let index = keyboard.alphabet.findIndex(letter => letter === event.target.innerHTML);
-            morseDisplayed.innerHTML = visualMorse.morseAlphabet[index].split('').join(' ');
-            
+    displayLetter(event){
+        document.querySelector(".display-letter").innerHTML = "";
+        visualMorse.letterDisplayed = document.createElement('div');
+        document.querySelector(".display-letter").appendChild(visualMorse.letterDisplayed);
+        visualMorse.letterDisplayed.classList.add("letter-displayed");
+        visualMorse.letterDisplayed.innerHTML = event.target.innerHTML;
+        audioMorse.combineSounds();
+        
+        visualMorse.morseDisplayed = document.createElement('div');
+        document.querySelector(".display-letter").appendChild(visualMorse.morseDisplayed);
+        visualMorse.morseDisplayed.classList.add("visual-morse-displayed");
+        let index = keyboard.alphabet.findIndex(letter => letter === event.target.innerHTML);
+        visualMorse.morseDisplayed.innerHTML = visualMorse.morseAlphabet[index].split('').join(' ');
     }
 };
-
+let audioMorse = {
+        long : document.getElementById("long"),
+        short : document.getElementById("short"),
+        combineSounds(){
+            audioMorse.short.currentTime = 0;
+            audioMorse.long.currentTime = 0;
+            console.log("combine");
+            let splittedMorse = visualMorse.morseDisplayed.innerHTML.split(' ');
+            console.log(splittedMorse[0]);
+            if (splittedMorse[0] == '.') {
+                audioMorse.short.play();
+            }else{
+                audioMorse.long.play();
+            }
+        }
+};
+        
 let app = {
-
     init(){
         keyboard.createKeyboard();
     }
 };
 
-app.init();
+
+
+document.addEventListener('DOMContentLoaded', app.init);
