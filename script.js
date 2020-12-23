@@ -12,11 +12,6 @@ let keyboard = {
     }
 };
 let visualMorse = {
-    // currentLetter : null, 
-    // currentPlayer : null, 
-    // newLetter : null, 
-    // newPlayer : null,
-    
     morseAlphabet : ["._","_...","_._.","_..",".",".._.","__.","....","..",".___","_._","._..","__","_.","___",".__.","__._","._.","...","_",".._","..._",".__","_.._","_.__","__.."],
     letterDisplayed : document.createElement('div'),
     morseDisplayed : document.createElement('div'),
@@ -34,26 +29,42 @@ let visualMorse = {
         visualMorse.morseDisplayed.classList.add("visual-morse-displayed");
         let index = keyboard.alphabet.findIndex(letter => letter === event.target.innerHTML);
         visualMorse.morseDisplayed.innerHTML = visualMorse.morseAlphabet[index].split('').join(' ');
-        
+
         audioMorse.combineSounds();
     }
 };
+
 let audioMorse = {
+
     long : document.getElementById("long"),
     short : document.getElementById("short"),
+
     combineSounds(){
-        audioMorse.short.currentTime = 0;
-        audioMorse.long.currentTime = 0;
-        console.log("combine");
         let splittedMorse = visualMorse.morseDisplayed.innerHTML.split(' ');
-        console.log(splittedMorse[0]);
-        if (splittedMorse[0] == '.') {
-            audioMorse.short.play();
-        }else{
-            audioMorse.long.play();
-        }
-    }
+        
+        let index = 0 ;
+        let interval = 200;
+
+        let playMorseCode = setInterval(() => {
+            audioMorse.long.pause();
+            audioMorse.short.pause();
+            audioMorse.long.currentTime = 0;
+            audioMorse.short.currentTime = 0;
+            console.log(splittedMorse[index]);
+            
+            if (splittedMorse[index] == undefined) {
+                clearInterval(playMorseCode);
+            }else if (splittedMorse[index] == '_'){
+                audioMorse.long.play();
+            }else if (splittedMorse[index] == '.') {
+                audioMorse.short.play();
+            }
+            index++
+            interval = interval + 200 ;
+        }, interval);
+    },
 };
+
 
 let app = {
     init(){
