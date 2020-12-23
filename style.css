@@ -2,71 +2,74 @@
     box-sizing: border-box;
 }
 body {
-    background-color: aquamarine;
-    display: flex;
     flex-direction: column;
+    color: rgb(36, 112, 105);
+    background-color: rgb(193, 238, 223);
+}
+
+body,.display-letter, .alphabet,.keyboard-letters {
+    display: flex;
     align-items: center;
+}
+.titre,.letter-displayed{
+    text-align: center;
 }
 
 .titre{
     font-size: 6em;
-    text-align: center;
-    color: rgb(36, 112, 105);
     font-family: 'Bungee', cursive;
-
 }
 
-.display-letter{
+.letter-displayed,.display-letter,.keyboard-letters{
     border: 2px solid rgb(36, 112, 105);
+}
+
+.display-letter,.alphabet{
     height: 40vh;
     width: 120vh;
+}
+.display-letter{
     border-radius: 10%;
     margin-top: 4vh;
-    display: flex;
-    align-items: center;
     justify-items: center;
+}
+.display-letter, .alphabet,.letter-displayed,.keyboard-letters{
+    border-radius: 10%;
 }
 
 .letter-displayed{
     font-size: 15em;
-    text-align: center;
-    border: 2px solid rgb(36, 112, 105);
-    background-color: rgb(141, 231, 222);
     width: 270px;
     height: 270px;
-    border-radius: 10%;
     margin-left: 10%;
+}
+
+.letter-displayed,.visual-morse-displayed{
+    margin-left: 10%;
+}
+.letter-displayed,.keyboard-letters{
+    background-color: rgb(183, 230, 225);
 }
 
 .visual-morse-displayed {
     font-size: 12em;
-    margin-left: 10%;
 }
 
 .alphabet{
-    /* border: 2px solid rgb(36, 112, 105); */
-    height: 40vh;
-    width: 120vh;
-    border-radius: 10%;
     margin-top: 5vh;
-    display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
+}
+    
+.alphabet,.keyboard-letters{
     justify-content: center;
     
 }
+
 .keyboard-letters{
-    border: 2px solid rgb(36, 112, 105);
     width: 100px;
     height: fit-content;
-    border-radius: 10%;
-    display: flex;
     margin: 5px;
-    background-color: rgb(141, 231, 222);
-    color: rgb(36, 112, 105);;
     font-size: 3em;
-    align-items: center;
-    justify-content: center;
     padding: 2%;    
-    
 }
