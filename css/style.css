@@ -7,7 +7,7 @@ body {
     background-color: rgb(193, 238, 223);
 }
 
-body,.display-letter, .alphabet,.keyboard-letters {
+body,.display-zone, .alphabet,.keyboard-letters {
     display: flex;
     align-items: center;
 }
@@ -20,19 +20,19 @@ body,.display-letter, .alphabet,.keyboard-letters {
     font-family: 'Bungee', cursive;
 }
 
-.letter-displayed,.display-letter,.keyboard-letters{
+.letter-displayed,.display-zone,.keyboard-letters{
     border: 2px solid rgb(36, 112, 105);
 }
 
-.display-letter,.alphabet{
+.display-zone,.alphabet{
     height: 40vh;
     width: 120vh;
 }
-.display-letter{
+.display-zone{
     margin-top: 4vh;
     justify-items: center;
 }
-.display-letter, .alphabet,.letter-displayed,.keyboard-letters{
+.display-zone, .alphabet,.letter-displayed,.keyboard-letters{
     border-radius: 10%;
 }
 

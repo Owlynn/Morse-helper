@@ -5,14 +5,14 @@ let visualMorse = {
     
     displayLetter(event){
         
-        document.querySelector(".display-letter").innerHTML = "";
+        document.querySelector(".display-zone").innerHTML = "";
         visualMorse.letterDisplayed = document.createElement('div');
-        document.querySelector(".display-letter").appendChild(visualMorse.letterDisplayed);
+        document.querySelector(".display-zone").appendChild(visualMorse.letterDisplayed);
         visualMorse.letterDisplayed.classList.add("letter-displayed");
         visualMorse.letterDisplayed.innerHTML = event.target.innerHTML;
         
         visualMorse.morseDisplayed = document.createElement('div');
-        document.querySelector(".display-letter").appendChild(visualMorse.morseDisplayed);
+        document.querySelector(".display-zone").appendChild(visualMorse.morseDisplayed);
         visualMorse.morseDisplayed.classList.add("visual-morse-displayed");
         let index = keyboard.alphabet.findIndex(letter => letter === event.target.innerHTML);
         visualMorse.morseDisplayed.innerHTML = visualMorse.morseAlphabet[index].split('').join(' ');
